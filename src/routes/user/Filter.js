@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FilterItem } from 'components'
 import { Form, Button, Row, Col, DatePicker, Input, Cascader, Switch } from 'antd'
+import { config } from 'utils'
 
 const ColProps = {
   xs: 24,
@@ -76,6 +77,7 @@ const Filter = ({
             <Button onClick={handleReset}>重置</Button>
           </div>
           <div className="flex-vertical-center">
+            <a href={config.api.downloadConsumeUserList} class="ant-btn _2mnot ant-btn-ghost" target="_blank">导出已缴费会员</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <Button type="ghost" onClick={onAdd}>添加用户</Button>
           </div>
         </div>
