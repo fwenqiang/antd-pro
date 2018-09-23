@@ -42,6 +42,10 @@ const List = ({
       dataIndex: 'usr_nme',
       key: 'usr_nme',
     }, {
+      title: '手机号',
+      dataIndex: 'pho_no',
+      key: 'pho_no',
+    },{
       title: '商品名称',
       dataIndex: 'pro_nme',
       key: 'pro_nme',
@@ -54,7 +58,11 @@ const List = ({
       title: '购买时间',
       dataIndex: 'upd_tme',
       key: 'upd_tme',
-    },  {
+    }, {
+      title: '收货地址',
+      dataIndex: 'rec_adr',
+      key: 'rec_adr',
+    }, {
       title: '订单状态',
       dataIndex: 'state',
       key: 'state',

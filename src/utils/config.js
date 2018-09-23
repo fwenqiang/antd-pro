@@ -55,6 +55,7 @@ module.exports = {
     updateOrder: `${env.preUrl}/order/updateOrder`,  // 更新订单
     createOrder: `${env.preUrl}/order/createOrder`,  // 创建新订单
     updateOrderState: `${env.preUrl}/order/updateOrderState`,  // 更新订单状态
+    downloadOrderList: `${env.preUrl}/order/downloadOrderList`,  // 导出订单列表
 
     deleteAllUser: `${env.preUrl}/order/deleteAllUser`,  // 删除用户
     deleteAllOrder: `${env.preUrl}/order/deleteAllOrder`,  // 删除订单

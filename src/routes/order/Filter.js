@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FilterItem } from 'components'
 import { Form, Button, Row, Col, DatePicker, Input, Cascader, Switch } from 'antd'
+import { config } from 'utils'
 
 const ColProps = {
   xs: 24,
@@ -72,7 +73,8 @@ const Filter = ({
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           <div>
             <Button type="primary" className="margin-right" onClick={handleSubmit}>查询</Button>
-            <Button onClick={handleReset}>重置</Button>
+            <Button onClick={handleReset}>重置</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href={config.api.downloadOrderList} class="ant-btn _2mnot ant-btn-ghost" target="_blank">导出订单列表</a>
           </div>
         </div>
       </Col>
