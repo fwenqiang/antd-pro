@@ -50,7 +50,7 @@ const List = ({
       title: '用户头像',
       dataIndex: 'tit_url',
       key: 'tit_url',
-      width: 64,
+      width: 128,
       className: styles.avatar,
       render: text => <img alt="avatar" width={24} src={text} />,
     }, {
@@ -74,6 +74,11 @@ const List = ({
       title: '手续费&个税(元)',
       dataIndex: 'tar_amt',
       key: 'tar_amt',
+    },{
+      title: '实际提现金额(元)',
+      render: (text, record) => {
+        return <pan>{record.amt-record.tar_amt}</pan>
+      },
     },{
       title: '提现类型',
       dataIndex: 'dep_typ',

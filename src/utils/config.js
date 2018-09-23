@@ -65,6 +65,8 @@ module.exports = {
 
     queryDepositList:`${env.preUrl}/deposit/queryDepositList`,    //查询提现列表
     depositShenhe:`${env.preUrl}/deposit/depositShenhe`,  //提现审核
+    downloadDepositList:`${env.preUrl}/deposit/downloadDepositList`,  //导出提现申请
+    downloadAuditDepositList:`${env.preUrl}/deposit/downloadAuditDepositList`,  //导出提现审核记录
 
     queryInvoiceList: `${env.preUrl}/invoice/queryInvoiceList`,  // 查询发票列表列表
     updateInvoiceState: `${env.preUrl}/invoice/updateInvoiceState`,  // 查询发票详情

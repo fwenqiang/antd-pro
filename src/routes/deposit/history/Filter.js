@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FilterItem } from 'components'
 import { Form, Button, Row, Col, DatePicker, Input, Cascader, Switch } from 'antd'
+import { config } from 'utils'
 
 const ColProps = {
   xs: 24,
@@ -61,10 +62,11 @@ const Filter = ({
       <Col {...ColProps} xl={{ span: 8 }} md={{ span: 8 }}>
         {getFieldDecorator('usr_nme', { initialValue: usr_nme })(<Input placeholder="用户名"  maxLength='20'/>)}
       </Col>
-     
+
       <Col {...TwoColProps} xl={{ span: 8 }} md={{ span: 8 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
             <Button type="primary" className="margin-right" onClick={handleSubmit}>查询</Button>
+            <a href={config.api.downloadAuditDepositList} class="ant-btn _2mnot ant-btn-ghost" target="_blank">导出提现审核记录</a>
         </div>
       </Col>
     </Row>
