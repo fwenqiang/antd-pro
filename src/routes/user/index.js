@@ -76,12 +76,6 @@ const User = ({
           })
         })*/
     },
-    onUpdateUserStateItem (usr_id,state) {
-      dispatch({
-        type: 'user/updateUserState',
-        payload: {usr_id:usr_id,state:state},
-      })
-    },
     onEditItem (item) {
       dispatch({
         type: 'user/queryUserDetail',

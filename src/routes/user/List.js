@@ -11,7 +11,7 @@ import styles from './List.less'
 const { confirm } = Modal
 
 const List = ({
-  onDeleteItem, onEditItem,onUpdateUserStateItem, location, ...tableProps
+  onDeleteItem, onEditItem, location, ...tableProps
 }) => {
   location.query = queryString.parse(location.search)
 
@@ -23,20 +23,6 @@ const List = ({
         title: '确定要删除该用户吗?',
         onOk () {
           onDeleteItem(record.usr_id)
-        },
-      })
-    }else if (e.key === '3') {
-      confirm({
-        title: '确定要冻结该用户吗?',
-        onOk () {
-          onUpdateUserStateItem(record.usr_id,0)
-        },
-      })
-    }else if (e.key === '4') {
-      confirm({
-        title: '确定要解冻该用户吗?',
-        onOk () {
-          onUpdateUserStateItem(record.usr_id,1)
         },
       })
     }
@@ -64,26 +50,11 @@ const List = ({
       dataIndex: 'pho_no',
       key: 'pho_no',
     }, {
-      title: '余额',
-      dataIndex: 'tol_amt',
-      key: 'tol_amt',
-    },{
-      title: '状态',
-      dataIndex: 'state',
-      key: 'state',
-      render :text => (<span>{text=='1'
-        ? '正常'
-        : '冻结'}</span>)
-    }, {
       title: '操作',
       key: 'operation',
       width: 100,
       render: (text, record) => {
-        if(record.state=="1"){
-          return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: '查看' }, { key: '2', name: '删除' },{key:'3',name:'冻结'}]} />
-        }else {
-          return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: '查看' }, { key: '2', name: '删除' },{key:'4',name:'解冻'}]} />
-        }
+        return <DropOption onMenuClick={e => handleMenuClick(record, e)} menuOptions={[{ key: '1', name: '查看' }, { key: '2', name: '删除' }]} />
       },
     },
   ]
@@ -114,7 +85,6 @@ const List = ({
 List.propTypes = {
   onDeleteItem: PropTypes.func,
   onEditItem: PropTypes.func,
-  onUpdateUserStateItem: PropTypes.func,
   location: PropTypes.object,
 }
 

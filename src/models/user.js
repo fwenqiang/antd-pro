@@ -91,18 +91,6 @@ export default modelExtend(pageModel, {
     }
     },
 
-    * updateUserState ({ payload={} }, { call, put, select }) {
-      log.debug('updateUserState payload',payload)
-      let pamas = { url: config.api.updateUserState, data: payload }
-      const data = yield call(httpRequest, pamas)
-      if (data.success) {
-        message.success('操作成功！');
-        yield put({ type: 'query', payload: { } })
-      } else {
-        message.error(data.errorMsg);
-      }
-    },
-
     * multiDelete ({ payload }, { call, put }) {
       const data = yield call(usersService.remove, payload)
       if (data.success) {
