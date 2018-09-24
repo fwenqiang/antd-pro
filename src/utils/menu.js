@@ -11,7 +11,21 @@ let database = [
     //bpid: '1',
     name: '用户管理',
     icon: 'user',
+    //route: '/user',
+  },
+  {
+    id: '2-1',
+    bpid: '2',
+    mpid: '2',
+    name: '用户列表',
     route: '/user',
+  },
+  {
+    id: '2-2',
+    bpid: '2',
+    mpid: '2',
+    name: '用户数列表',
+    route: '/user/account',
   },
   {
     id: '21',
@@ -85,8 +99,8 @@ let database = [
     route: '/invoice',
     icon: 'file-text',
   },
-  
-  
+
+
   /*{
     id: '3',
     bpid: '1',

@@ -8,8 +8,8 @@ import { pageModel } from './common'
 import { httpRequest} from 'services/app'
 import { message } from 'antd'
 
-const { query } = usersService
-const { prefix } = config
+//const { query } = usersService
+//const { prefix } = config
 
 export default modelExtend(pageModel, {
   namespace: 'user',
@@ -30,6 +30,12 @@ export default modelExtend(pageModel, {
             type: 'query',
             payload,
           })
+        }else if(location.pathname === '/user/account'){
+          const payload = queryString.parse(location.search) || { page: 1, pageSize: 10 }
+          dispatch({
+            type: 'account',
+            payload,
+          })
         }else if(location.pathname === '/user/detail'){
           const payload = queryString.parse(location.search)
           dispatch({
@@ -45,6 +51,26 @@ export default modelExtend(pageModel, {
 
     * query ({ payload = {} }, { call, put }) {
       let pamas = {url:config.api.queryUserList,data:payload}
+      pamas.data.n_page = payload.page?payload.page-1:0
+      pamas.data.n_size = payload.pageSize || 10
+      const data = yield call(httpRequest, pamas)
+      if (data) {
+        yield put({
+          type: 'querySuccess',
+          payload: {
+            list: data.usr_list,
+            pagination: {
+              current: Number(payload.page) || 1,
+              pageSize: Number(payload.pageSize) || 10,
+              total: data.total,
+            },
+          },
+        })
+      }
+    },
+
+    * account ({ payload = {} }, { call, put }) {
+      let pamas = {url:config.api.querySameAccountList,data:payload}
       pamas.data.n_page = payload.page?payload.page-1:0
       pamas.data.n_size = payload.pageSize || 10
       const data = yield call(httpRequest, pamas)
@@ -168,6 +194,5 @@ export default modelExtend(pageModel, {
     updateData (state, { payload }) {
       return { ...state, ...payload }
     },
-
   },
 })

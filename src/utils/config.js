@@ -29,6 +29,9 @@ module.exports = {
     uploadUserList: `${env.preUrl}/userManager/uploadUserList`,  // 导入用户名单
     downloadUserList: `${env.preUrl}/userManager/downloadUserList`,  // 导入用户名单
     downloadConsumeUserList: `${env.preUrl}/userManager/downloadConsumeUserList`,  // 导出已缴费会员名单
+    querySameAccountList: `${env.preUrl}/userManager/querySameAccountList`,  // 用户数列表
+
+
 
 
     queryPoster:`${env.preUrl}/poster/queryPoster`,  //查询广告列表
