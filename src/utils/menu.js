@@ -20,13 +20,13 @@ let database = [
     name: '用户列表',
     route: '/user',
   },
-  {
+/*  {
     id: '2-2',
     bpid: '2',
     mpid: '2',
     name: '用户数列表',
     route: '/user/account',
-  },
+  },*/
   {
     id: '21',
     mpid: '-1',
